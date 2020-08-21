@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'pip install -r requirements.txt'
+        echo '=== install dependency from requirements.txt ==='
+        sh 'sudo -H pip install -r requirements.txt'
       }
     }
     stage('test') {
