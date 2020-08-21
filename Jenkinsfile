@@ -17,7 +17,9 @@ pipeline {
         stage('Test Application') {
             steps {
                 echo '=== Testing pf-hello-flask Application ==='
+                withEnv(["HOME=${env.WORKSPACE}"]) {
                 sh 'python tests/test_hello.py'
+                }
             }
             post {
                 always {
