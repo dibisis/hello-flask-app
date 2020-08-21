@@ -25,13 +25,11 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
-            when {
-                branch 'master'
-            }
-            steps {
-                echo '=== Building pf-hello-flask Docker Image ==='
-                sh 'docker build -t dibisis/pf-hello-flask:latest .'
+        stage('Build docker image') {
+            container('docker') {
+
+                    sh "docker build -t dibisis/pf-hello-flask:latest -f ./Dockerfile ."
+
             }
         }
         stage('Push Docker Image') {
