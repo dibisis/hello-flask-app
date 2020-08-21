@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.7.1' } }
+    agent { docker { image 'python:3.7.6' } }
        triggers {
         pollSCM "* * * * *"
        }
