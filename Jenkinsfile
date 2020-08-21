@@ -31,9 +31,7 @@ pipeline {
             }
             steps {
                 echo '=== Building pf-hello-flask Docker Image ==='
-                script {
-                    app = docker.build("dibisis/pf-hello-flask")
-                }
+                sh 'docker build -t dibisis/pf-hello-flask:latest'
             }
         }
         stage('Push Docker Image') {
