@@ -28,7 +28,7 @@ pipeline {
         stage('Build docker image') {
             container('docker') {
 
-                    sh "docker build -t dibisis/pf-hello-flask:latest -f ./Dockerfile ."
+                sh "docker build -t dibisis/pf-hello-flask:latest -f ./Dockerfile ."
 
             }
         }
