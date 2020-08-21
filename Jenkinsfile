@@ -7,7 +7,11 @@ pipeline {
         stage('Build Application') {
             steps {
                 echo '=== Building pf-hello-flask Application ==='
-                sh 'pip install -r requirements.txt'
+
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'pip install --user -r requirements.txt'
+
+                }
             }
         }
         stage('Test Application') {
